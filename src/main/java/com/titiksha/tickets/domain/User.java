@@ -28,7 +28,6 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @EntityListeners(AuditingEntityListener.class) 
 public class User {
     @Id
@@ -119,5 +118,17 @@ public class User {
         } else if (!updatedAt.equals(other.updatedAt))
             return false;
         return true;
+    }
+
+    public void setName(Object object) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void setId(UUID keycloak) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void setEmail(String toString) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
