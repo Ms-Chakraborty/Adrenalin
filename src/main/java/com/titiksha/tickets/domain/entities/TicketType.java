@@ -1,4 +1,4 @@
-package com.titiksha.tickets.domain;
+package com.titiksha.tickets.domain.entities;
 
 
 import java.time.LocalDateTime;
@@ -8,7 +8,7 @@ import javax.annotation.processing.Generated;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.w3c.dom.events.Event;
+import com.titiksha.tickets.domain.entities.Events;
 
 import io.micrometer.observation.Observation;
 import jakarta.persistence.CascadeType;
@@ -45,13 +45,17 @@ public class TicketType {
 
     @Column(name = "price",nullable=false)
     private Double price;
+    
+    @Column(name = "description",nullable=true)
+    private String description;
+
 
     @Column(name = "total_available")
     private Integer totalAvailable;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "event_id")
-    private Event event;
+    private Events event;
 
     @OneToMany(mappedBy = "ticketType",cascade=CascadeType.ALL)
     private List<Ticket> tickets=new ArrayList<>();

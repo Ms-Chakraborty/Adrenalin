@@ -9,6 +9,10 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationFilter;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
+import javax.crypto.spec.SecretKeySpec;
+import java.nio.charset.StandardCharsets;
 @Configuration
 public class SecurityConfig {
     @Bean
@@ -25,7 +29,15 @@ public class SecurityConfig {
             ))
             .addFilterBefore(userProvisioningFilter, BearerTokenAuthenticationFilter.class);
         return http.build();
-        
+    }
+
+    // Simple JwtDecoder for local development/testing when Keycloak auto-config isn't available.
+    @Bean
+    public JwtDecoder jwtDecoder() {
+        byte[] secret = "dev-secret-key-should-be-changed".getBytes(StandardCharsets.UTF_8);
+        SecretKeySpec key = new SecretKeySpec(secret, "HmacSHA256");
+        return NimbusJwtDecoder.withSecretKey(key).build();
+    }
             
 
 
@@ -40,7 +52,6 @@ public class SecurityConfig {
             .logout((logout) -> logout.permitAll());
 
         return http.build();*/
-    }
 
     /*@Bean
     public UserDetailsService userDetailsService() {

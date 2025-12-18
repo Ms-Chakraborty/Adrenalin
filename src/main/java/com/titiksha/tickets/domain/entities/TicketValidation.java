@@ -1,4 +1,4 @@
-package com.titiksha.tickets.domain;
+package com.titiksha.tickets.domain.entities;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
@@ -6,8 +6,8 @@ import java.util.UUID;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import com.titiksha.tickets.domain.TicketValidationMethodEnum;
-import com.titiksha.tickets.domain.TicketValidationStatusEnum;
+import com.titiksha.tickets.domain.entities.TicketValidationMethodEnum;
+import com.titiksha.tickets.domain.entities.TicketValidationStatusEnum;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

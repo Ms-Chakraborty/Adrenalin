@@ -1,4 +1,4 @@
-package com.titiksha.tickets.domain;
+package com.titiksha.tickets.domain.entities;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ import lombok.*;
 
 // Enable JPA Auditing listeners for @CreatedDate and @LastModifiedDate
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor

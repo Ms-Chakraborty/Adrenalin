@@ -1,4 +1,4 @@
-package com.titiksha.tickets.domain;
+package com.titiksha.tickets.domain.entities;
 
 import java.lang.annotation.Inherited;
 

@@ -1,4 +1,4 @@
-package com.titiksha.tickets.domain;
+package com.titiksha.tickets.domain.entities;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,11 +51,11 @@ public class Events {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "start")
-    private LocalDateTime start;
+    @Column(name = "start_time")
+    private LocalDateTime startTime;
 
-    @Column(name = "end")
-    private LocalDateTime end;
+    @Column(name = "end_time")
+    private LocalDateTime endTime;
 
     @Column(name = "venue", nullable = true)
     private String venue;
@@ -100,8 +100,8 @@ public class Events {
         int hash = 3;
         hash = 29 * hash + Objects.hashCode(this.id);
         hash = 29 * hash + Objects.hashCode(this.name);
-        hash = 29 * hash + Objects.hashCode(this.start);
-        hash = 29 * hash + Objects.hashCode(this.end);
+        hash = 29 * hash + Objects.hashCode(this.startTime);
+        hash = 29 * hash + Objects.hashCode(this.endTime);
         hash = 29 * hash + Objects.hashCode(this.venue);
         hash = 29 * hash + Objects.hashCode(this.salesStart);
         hash = 29 * hash + Objects.hashCode(this.salesEnd);
@@ -132,10 +132,10 @@ public class Events {
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
-        if (!Objects.equals(this.start, other.start)) {
+        if (!Objects.equals(this.startTime, other.startTime)) {
             return false;
         }
-        if (!Objects.equals(this.end, other.end)) {
+        if (!Objects.equals(this.endTime, other.endTime)) {
             return false;
         }
         if (!Objects.equals(this.salesStart, other.salesStart)) {
